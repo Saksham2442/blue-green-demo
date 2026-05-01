@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapp
+      slot: green
+  template:
+    metadata:
+      labels:
+        app: myapp
+        slot: green
+    spec:
+      containers:
+      - name: myapp
+        image: YOURDOCKERHUBUSERNAME/blue-green-demo:green
+        ports:
+        - containerPort: 3000
+        env:
+        - name: APP_VERSION
+          value: "v2-green"

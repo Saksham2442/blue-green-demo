@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: YOURDOCKERHUBUSERNAME/blue-green-demo:green
+        image: punkk/blue-green-demo:green
         ports:
         - containerPort: 3000
         env:
